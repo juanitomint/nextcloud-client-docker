@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    nextcloud-client:
+        build: .
+        image: juanitomint/nextcloud-client
+        environment:
+            NC_URL:
+            NC_USER:
+            NC_PASS:
+            NC_SOURCE_DIR: '/media/nextcloud/'
+            NC_SILENT: 'false'
+            NC_INTERVAL: 300
+            NC_EXIT: 'false'
+            USER: 'ncsync'
+            USER_GID: 1000
+            USER_UID: 1000
+            NC_TRUST_CERT: 'false'
+            NC_HIDDEN: 'false'
+        volumes:
+            - ./sync-folder:/media/nextcloud

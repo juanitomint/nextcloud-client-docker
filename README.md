@@ -61,8 +61,12 @@ replace:
  with valid values for an existing and valid user on a Nextcloud Server.
 
 ## ENV variables to customize your deploy
-##### NC_USER 
-The user name to log in 
+
+##### NC_URL
+URL to the Nextcloud instance. You can sync spepcific folders by providing the full path in the URL like `https://cloud.example.com/remote.php/webdav/<path/to/custom/dir>`. This will only sync the contents of `path/to/custom/dir`.
+
+##### NC_USER
+The user name to log in
 Default: username
 ##### NC_PASS 
 Valid password for the user above in clear text

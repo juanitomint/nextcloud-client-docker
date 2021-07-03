@@ -10,9 +10,9 @@ ARG USER_GID=1000
 ENV USER=$USER \
     USER_UID=$USER_UID \
     USER_GID=$USER_GID \
-    NC_USER=username \
-    NC_PASS=password \
-    NC_INTERVAL=500 \
+    NC_USER="" \
+    NC_PASS="" \
+    NC_INTERVAL=300 \
     NC_URL="" \
     NC_TRUST_CERT=false \
     NC_SOURCE_DIR="/media/nextcloud/" \
@@ -25,7 +25,7 @@ ENV USER=$USER \
 RUN addgroup -g $USER_GID $USER && adduser -G $USER -D -u $USER_UID $USER
 
 # update repositories and install nextcloud-client
-RUN apk update && apk add nextcloud-client && rm -rf /etc/apk/cache
+RUN apk update && apk add nextcloud-client moreutils && rm -rf /etc/apk/cache
 
 # add run script
 ADD run.sh /usr/bin/run.sh
